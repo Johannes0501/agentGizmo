@@ -13,6 +13,7 @@ services:
       - ./custom/webui/index.html:/a0/webui/index.html:ro
       - ./custom/webui/public/favicon.svg:/a0/webui/public/favicon.svg:ro
       - ./custom/webui/public/icon.svg:/a0/webui/public/icon.svg:ro
+      - ./custom/webui/components/welcome/welcome-screen.html:/a0/webui/components/welcome/welcome-screen.html:ro
     environment:
       - ALLOWED_ORIGINS=https://gizmo.xn--datastrm-c5a.com,https://gizmo.datastrøm.com,*://localhost:*,*://127.0.0.1:*
     networks:
