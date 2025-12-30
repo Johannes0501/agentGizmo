@@ -1,0 +1,18 @@
+# Data directories
+data/
+
+# Authelia secrets (keep config templates, exclude actual secrets)
+authelia/db.sqlite3
+authelia/notification.txt
+authelia/users_database.yml
+authelia/configuration.yml
+
+# Logs
+logs/
+
+# Environment files
+.env
+*.env
+
+# Docker
+*.log

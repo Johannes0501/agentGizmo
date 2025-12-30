@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  agent-zero:
+    image: agent0ai/agent-zero
+    container_name: agent-zero
+    restart: unless-stopped
+    ports:
+      - "50001:80"
+    volumes:
+      - ./data/agent-zero:/app/data
+    environment:
+      - ALLOWED_ORIGINS=https://gizmo.xn--datastrm-c5a.com,https://gizmo.datastrøm.com,*://localhost:*,*://127.0.0.1:*
+    networks:
+      - gizmo-net
+
+  authelia:
+    image: authelia/authelia:latest
+    container_name: authelia
+    restart: unless-stopped
+    ports:
+      - "9091:9091"
+    volumes:
+      - ./authelia:/config
+    environment:
+      - TZ=Europe/Copenhagen
+    networks:
+      - gizmo-net
+
+  redis:
+    image: redis:alpine
+    container_name: authelia-redis
+    restart: unless-stopped
+    volumes:
+      - ./data/redis:/data
+    networks:
+      - gizmo-net
+
+networks:
+  gizmo-net:
+    driver: bridge
