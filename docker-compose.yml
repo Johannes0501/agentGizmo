@@ -9,6 +9,10 @@ services:
       - "50001:80"
     volumes:
       - ./data/agent-zero:/app/data
+      # Custom branding
+      - ./custom/webui/index.html:/a0/webui/index.html:ro
+      - ./custom/webui/public/favicon.svg:/a0/webui/public/favicon.svg:ro
+      - ./custom/webui/public/icon.svg:/a0/webui/public/icon.svg:ro
     environment:
       - ALLOWED_ORIGINS=https://gizmo.xn--datastrm-c5a.com,https://gizmo.datastrøm.com,*://localhost:*,*://127.0.0.1:*
     networks:
