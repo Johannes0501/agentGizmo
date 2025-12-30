@@ -9,6 +9,10 @@ services:
       - "50001:80"
     volumes:
       - ./data/agent-zero:/app/data
+      # Persist settings, memory, and prompts
+      - ./data/agent-zero/tmp:/a0/tmp
+      - ./data/agent-zero/memory:/a0/memory
+      - ./data/agent-zero/prompts:/a0/prompts
       # Custom branding
       - ./custom/webui/index.html:/a0/webui/index.html:ro
       - ./custom/webui/public/favicon.svg:/a0/webui/public/favicon.svg:ro
